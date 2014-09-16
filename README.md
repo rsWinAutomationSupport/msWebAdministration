@@ -71,7 +71,7 @@ Example:
   DependsOn = @("[File]rackspacedevops_com_folder","[xWebAppPool]rackspacedevops_com_pool")
 }
 
-<b>File rackspacedevops_com__blog_folder</b>
+<b>File rackspacedevops_com_blog_folder</b>
 {
   DestinationPath = "C:\inetpub\wwwroot\www.rackspacedevops.com"
   Type = "Directory"
@@ -85,7 +85,7 @@ Example:
   Name = "blog"
   WebAppPool = "www.rackspacedevops.com"
   PhysicalPath = "C:\blog"
-  DependsOn = @("[File]rackspacedevops_com__blog_folder","[xWebSite]rackspace_devops_com_site")
+  DependsOn = @("[File]rackspacedevops_com_blog_folder","[xWebSite]rackspace_devops_com_site")
 }
 ##################################################
 # End website configuration
