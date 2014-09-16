@@ -17,7 +17,7 @@ Example:
   Name = "Web-Server"
 }
 
-<b>WindowsFeature AspNet45
+<b>WindowsFeature AspNet45</b>
 {
   Ensure = "Present"
   Name = "Web-Asp-Net45"
