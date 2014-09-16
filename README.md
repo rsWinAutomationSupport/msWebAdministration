@@ -11,20 +11,20 @@ USAGE NOTES - Dependencies must be used throughout the config to prevent failure
 
 Example:
 
-WindowsFeature IIS
+<b>WindowsFeature IIS</b>
 {
 Ensure = "Present"
 Name = "Web-Server"
 }
 
-File rackspacedevops_com_folder
+<b>File rackspacedevops_com_folder</b>
 {
   DestinationPath = "C:\inetpub\wwwroot\www.rackspacedevops.com"
   Type = "Directory"
   Ensure = "Present"
 }
 
-xWebAppPool rackspacedevops_com_pool
+<b>xWebAppPool rackspacedevops_com_pool</b>
 {
   Name = "www.rackspacedevops.com"
   Ensure = "Present"
@@ -32,7 +32,7 @@ xWebAppPool rackspacedevops_com_pool
   DependsOn = @("[WindowsFeature]IIS")
 }
 
-xWebSite rackspace_devops_com_site
+<b>xWebSite rackspace_devops_com_site</b>
 {
   Name = "www.rackspacedevops.com"
   ApplicationPool = "www.rackspacedevops.com"
@@ -40,14 +40,14 @@ xWebSite rackspace_devops_com_site
   State = "Started"
   PhysicalPath = "C:\inetpub\wwwroot\www.rackspacedevops.com"
   BindingInfo = @(
-    MSFT_xWebBindingInformation
+    <b>MSFT_xWebBindingInformation</b>
     {
       IPAddress = "*"
       Port = 80
       Protocol = "HTTP"
       HostName = "www.rackspacedevops.com"
     }
-    MSFT_xWebBindingInformation
+    <b>MSFT_xWebBindingInformation</b>
     {
       IPAddress = "*"
       Port = 443
