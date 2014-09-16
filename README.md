@@ -25,9 +25,9 @@ Example:
 }
 
 
-**************************************************
+##################################################
 # Website - www.rackspacedevops.com
-**************************************************
+##################################################
 <b>File rackspacedevops_com_folder</b>
 {
   DestinationPath = "C:\inetpub\wwwroot\www.rackspacedevops.com"
@@ -87,9 +87,9 @@ Example:
   PhysicalPath = "C:\blog"
   DependsOn = @("[File]rackspacedevops_com__blog_folder","[xWebSite]rackspace_devops_com_site")
 }
-**************************************************
+##################################################
 # End website configuration
-**************************************************
+##################################################
 
 
 </pre>
