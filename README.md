@@ -78,7 +78,7 @@ Example:
   Ensure = "Present"
 }
 
-<b>WebApplication rackspacedevops_com_blog</b>
+<b>xWebApplication rackspacedevops_com_blog</b>
 {
   Ensure = "Present"
   Website = "www.rackspacedevops.com"
