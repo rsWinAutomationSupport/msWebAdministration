@@ -1,6 +1,6 @@
 msWebAdministration
 ===================
-<pre>
+
 USAGE NOTES - Dependencies must be used throughout the config to prevent failure. Your config should run in the following order.
 
 1. Install IIS and .NET
@@ -11,7 +11,7 @@ USAGE NOTES - Dependencies must be used throughout the config to prevent failure
 
 
 Example:
-
+<pre>
 <b>WindowsFeature IIS</b>
 {
   Ensure = "Present"
