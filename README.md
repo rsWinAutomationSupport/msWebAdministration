@@ -7,7 +7,7 @@ USAGE NOTES - Dependencies must be used throughout the config to prevent failure
 2. Create Website folder (even if deploying code from Git or TeamCity)
 3. Create application pool (with dependency for IIS)
 4. Create website (with dependency for app pool and folder)
-5. Create sub-applications and virtual directories (also creating their folder and dependent on the website)
+5. Create sub-applications and virtual directories (also creating their folder and making them dependent on the website)
 
 
 Example:
