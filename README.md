@@ -13,8 +13,14 @@ Example:
 
 <b>WindowsFeature IIS</b>
 {
-Ensure = "Present"
-Name = "Web-Server"
+  Ensure = "Present"
+  Name = "Web-Server"
+}
+
+<b>WindowsFeature AspNet45
+{
+  Ensure = "Present"
+  Name = "Web-Asp-Net45"
 }
 
 <b>File rackspacedevops_com_folder</b>
