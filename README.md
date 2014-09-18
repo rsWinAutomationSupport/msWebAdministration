@@ -11,14 +11,14 @@ USAGE NOTES - Dependencies must be used throughout the config to prevent failure
 
 
 Example:
-<pre>
-<b>WindowsFeature IIS</b>
+```PoSh
+WindowsFeature IIS
 {
   Ensure = "Present"
   Name = "Web-Server"
 }
 
-<b>WindowsFeature AspNet45</b>
+WindowsFeature AspNet45
 {
   Ensure = "Present"
   Name = "Web-Asp-Net45"
@@ -28,14 +28,14 @@ Example:
 ##################################################
 # Website - www.rackspacedevops.com
 ##################################################
-<b>File rackspacedevops_com_folder</b>
+File rackspacedevops_com_folder
 {
   DestinationPath = "C:\inetpub\wwwroot\www.rackspacedevops.com"
   Type = "Directory"
   Ensure = "Present"
 }
 
-<b>xWebAppPool rackspacedevops_com_pool</b>
+xWebAppPool rackspacedevops_com_pool
 {
   Name = "www.rackspacedevops.com"
   Ensure = "Present"
@@ -43,7 +43,7 @@ Example:
   DependsOn = @("[WindowsFeature]IIS")
 }
 
-<b>xWebSite rackspace_devops_com_site</b>
+xWebSite rackspace_devops_com_site
 {
   Name = "www.rackspacedevops.com"
   ApplicationPool = "www.rackspacedevops.com"
@@ -51,14 +51,14 @@ Example:
   State = "Started"
   PhysicalPath = "C:\inetpub\wwwroot\www.rackspacedevops.com"
   BindingInfo = @(
-    <b>MSFT_xWebBindingInformation</b>
+    MSFT_xWebBindingInformation
     {
       IPAddress = "*"
       Port = 80
       Protocol = "HTTP"
       HostName = "www.rackspacedevops.com"
     }
-    <b>MSFT_xWebBindingInformation</b>
+    MSFT_xWebBindingInformation
     {
       IPAddress = "*"
       Port = 443
@@ -71,14 +71,14 @@ Example:
   DependsOn = @("[File]rackspacedevops_com_folder","[xWebAppPool]rackspacedevops_com_pool")
 }
 
-<b>File rackspacedevops_com_blog_folder</b>
+File rackspacedevops_com_blog_folder
 {
   DestinationPath = "C:\inetpub\wwwroot\www.rackspacedevops.com"
   Type = "Directory"
   Ensure = "Present"
 }
 
-<b>xWebApplication rackspacedevops_com_blog</b>
+xWebApplication rackspacedevops_com_blog
 {
   Ensure = "Present"
   Website = "www.rackspacedevops.com"
@@ -92,4 +92,4 @@ Example:
 ##################################################
 
 
-</pre>
+```
