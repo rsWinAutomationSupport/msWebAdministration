@@ -1,4 +1,4 @@
-﻿configuration Sample_xWebsite_StopDefault
+configuration Sample_xWebsite_StopDefault
 {
     param
     (
@@ -19,7 +19,7 @@
         }
 
         # Stop the default website
-        xWebsite DefaultSite 
+        msWebsite DefaultSite 
         {
             Ensure          = "Present"
             Name            = "Default Web Site"

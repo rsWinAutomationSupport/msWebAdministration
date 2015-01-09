@@ -35,7 +35,7 @@ File rackspacedevops_com_folder
   Ensure = "Present"
 }
 
-xWebAppPool rackspacedevops_com_pool
+msWebAppPool rackspacedevops_com_pool
 {
   Name = "www.rackspacedevops.com"
   Ensure = "Present"
@@ -43,7 +43,7 @@ xWebAppPool rackspacedevops_com_pool
   DependsOn = @("[WindowsFeature]IIS")
 }
 
-xWebSite rackspace_devops_com_site
+msWebsite rackspace_devops_com_site
 {
   Name = "www.rackspacedevops.com"
   ApplicationPool = "www.rackspacedevops.com"
@@ -51,14 +51,14 @@ xWebSite rackspace_devops_com_site
   State = "Started"
   PhysicalPath = "C:\inetpub\wwwroot\www.rackspacedevops.com"
   BindingInfo = @(
-    MSFT_xWebBindingInformation
+    MSFT_msWebBindingInformation
     {
       IPAddress = "*"
       Port = 80
       Protocol = "HTTP"
       HostName = "www.rackspacedevops.com"
     }
-    MSFT_xWebBindingInformation
+    MSFT_msWebBindingInformation
     {
       IPAddress = "*"
       Port = 443
@@ -68,7 +68,7 @@ xWebSite rackspace_devops_com_site
       CertificateStoreName = "WebHosting"
     }
     )
-  DependsOn = @("[File]rackspacedevops_com_folder","[xWebAppPool]rackspacedevops_com_pool")
+  DependsOn = @("[File]rackspacedevops_com_folder","[msWebAppPool]rackspacedevops_com_pool")
 }
 
 File rackspacedevops_com_blog_folder
@@ -78,7 +78,7 @@ File rackspacedevops_com_blog_folder
   Ensure = "Present"
 }
 
-xWebApplication rackspacedevops_com_blog
+msWebApplication rackspacedevops_com_blog
 {
   Ensure = "Present"
   Website = "www.rackspacedevops.com"

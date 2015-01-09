@@ -1,5 +1,5 @@
 $diff = join-Path ${env:ProgramFiles(x86)} "Beyond compare 2\bc2.exe"
-$friendlyName = "xIisModule"
+$friendlyName = "msIisModule"
 $resourceName = "MSFT_$friendlyName"
 $classVersion = "1.0.0"
 
