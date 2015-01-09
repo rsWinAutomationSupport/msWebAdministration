@@ -10,7 +10,7 @@ Class MSFT_msWebBindingInformation
 };
 
 
-[ClassVersion("2.0.0"), FriendlyName("xWebsite")] 
+[ClassVersion("2.0.0"), FriendlyName("msWebsite")] 
 class MSFT_msWebsite : OMI_BaseResource
 {
   [Key] string Name;
