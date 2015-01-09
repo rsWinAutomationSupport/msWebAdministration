@@ -1,30 +1,10 @@
-﻿configuration Sample_xWebsite_NewWebsite
+Configuration Sample_xWebsite_FromConfigurationData
 {
-    param
-    (
-        # Target nodes to apply the configuration
-        [string[]]$NodeName = 'localhost',
-
-        # Name of the website to create
-        [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
-        [String]$WebSiteName,
-
-        # Source Path for Website content
-        [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
-        [String]$SourcePath,
-
-        # Destination path for Website content
-        [Parameter(Mandatory)]
-        [ValidateNotNullOrEmpty()]
-        [String]$DestinationPath
-    )
-
     # Import the module that defines custom resources
     Import-DscResource -Module xWebAdministration
 
-    Node $NodeName
+    # Dynamically find the applicable nodes from configuration data
+    Node $AllNodes.where{$_.Role -eq "Web"}.NodeName
     {
         # Install the IIS role
         WindowsFeature IIS
@@ -40,13 +20,13 @@
             Name            = "Web-Asp-Net45"
         }
 
-        # Stop the default website
-        xWebsite DefaultSite 
+        # Stop an existing website (set up in Sample_xWebsite_Default)
+        msWebsite DefaultSite 
         {
             Ensure          = "Present"
             Name            = "Default Web Site"
             State           = "Stopped"
-            PhysicalPath    = "C:\inetpub\wwwroot"
+            PhysicalPath    = $Node.DefaultWebSitePath
             DependsOn       = "[WindowsFeature]IIS"
         }
 
@@ -54,20 +34,20 @@
         File WebContent
         {
             Ensure          = "Present"
-            SourcePath      = $SourcePath
-            DestinationPath = $DestinationPath
+            SourcePath      = $Node.SourcePath
+            DestinationPath = $Node.DestinationPath
             Recurse         = $true
             Type            = "Directory"
             DependsOn       = "[WindowsFeature]AspNet45"
         }       
 
-        # Create the new Website
-        xWebsite NewWebsite
+        # Create a new website
+        msWebsite BakeryWebSite 
         {
             Ensure          = "Present"
-            Name            = $WebSiteName
+            Name            = $Node.WebsiteName
             State           = "Started"
-            PhysicalPath    = $DestinationPath
+            PhysicalPath    = $Node.DestinationPath
             DependsOn       = "[File]WebContent"
         }
     }
