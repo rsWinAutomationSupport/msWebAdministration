@@ -1,4 +1,4 @@
-configuration Sample_xWebsite_NewWebsite
+configuration Sample_msWebsite_NewWebsite
 {
     param
     (
@@ -22,7 +22,7 @@ configuration Sample_xWebsite_NewWebsite
     )
 
     # Import the module that defines custom resources
-    Import-DscResource -Module xWebAdministration
+    Import-DscResource -Module msWebAdministration
 
     Node $NodeName
     {
