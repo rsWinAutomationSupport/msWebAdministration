@@ -1,4 +1,4 @@
-configuration Sample_xWebsite_StopDefault
+configuration Sample_msWebsite_StopDefault
 {
     param
     (
@@ -7,7 +7,7 @@ configuration Sample_xWebsite_StopDefault
     )
 
     # Import the module that defines custom resources
-    Import-DscResource -Module xWebAdministration
+    Import-DscResource -Module msWebAdministration
 
     Node $NodeName
     {

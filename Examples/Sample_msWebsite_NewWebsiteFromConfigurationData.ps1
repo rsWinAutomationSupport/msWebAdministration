@@ -1,7 +1,7 @@
-Configuration Sample_xWebsite_FromConfigurationData
+Configuration Sample_msWebsite_FromConfigurationData
 {
     # Import the module that defines custom resources
-    Import-DscResource -Module xWebAdministration
+    Import-DscResource -Module msWebAdministration
 
     # Dynamically find the applicable nodes from configuration data
     Node $AllNodes.where{$_.Role -eq "Web"}.NodeName
@@ -20,7 +20,7 @@ Configuration Sample_xWebsite_FromConfigurationData
             Name            = "Web-Asp-Net45"
         }
 
-        # Stop an existing website (set up in Sample_xWebsite_Default)
+        # Stop an existing website (set up in Sample_msWebsite_Default)
         msWebsite DefaultSite 
         {
             Ensure          = "Present"

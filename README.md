@@ -85,7 +85,7 @@ msWebApplication rackspacedevops_com_blog
   Name = "blog"
   WebAppPool = "www.rackspacedevops.com"
   PhysicalPath = "C:\blog"
-  DependsOn = @("[File]rackspacedevops_com_blog_folder","[xWebSite]rackspace_devops_com_site")
+  DependsOn = @("[File]rackspacedevops_com_blog_folder","[msWebsite]rackspace_devops_com_site")
 }
 ##################################################
 # End website configuration
