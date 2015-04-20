@@ -78,7 +78,7 @@ function Get-TargetResource
                                         State = $Website.state;
                                         ID = $Website.id;
                                         ApplicationPool = $Website.applicationPool;
-                                        BindingInfo = $CimBindings;
+                                        #BindingInfo = $CimBindings;
 					DefaultPage = $allDefaultPage
                                     }
         
